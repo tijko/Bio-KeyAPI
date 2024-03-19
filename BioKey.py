@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from flask import Flask, request, jsonify
 import sqlite3
 
@@ -15,7 +18,6 @@ def create_table():
     conn.execute('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, name TEXT, description TEXT)')
     conn.commit()
     conn.close()
-
 create_table()
 
 # Create operation
