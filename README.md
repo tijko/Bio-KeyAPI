@@ -1,6 +1,8 @@
 # Bio-KeyAPI
 Bio-KeyAPI
 
+[![Bio-Key](https://github.com/tijko/Bio-KeyAPI/actions/workflows/main.yaml/badge.svg)](https://github.com/tijko/Bio-KeyAPI/actions/workflows/main.yaml)
+
     docker-compose -f docker-compose.yml up --build -d 
     docker-compose up
 
