@@ -15,3 +15,7 @@ This Flask API provides the following endpoints:
     DELETE /item/<item_id>: Delete a specific item by its ID.
 
 You can test these endpoints using tools like Postman or by sending HTTP requests using libraries like requests in Python.
+
+Run Tests Locally:
+
+    python -m pytest BioKey-Tests.py
