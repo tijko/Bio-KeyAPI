@@ -40,7 +40,7 @@ def test_get_users(client):
     assert len(data) == 1  # Assuming there are 3 users in the database
 
     # You can add more assertions based on the expected response data
-    assert data[0]['name'] == 'Tim'
+    assert data[0]['items'][0]['name'] == 'Tim'
     #assert data[1]['name'] == 'Bob'
     #assert data[2]['name'] == 'Charlie'
 
