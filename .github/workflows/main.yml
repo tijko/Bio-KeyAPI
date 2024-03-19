@@ -13,8 +13,11 @@ jobs:
         run: | # Going to remove this for testing
             docker-compose -f docker-compose.yml up --build -d
             docker-compose up &
+      - uses: actions/setup-python@v3
       - name: Install Requirements
+          with:
+            python-version: "3.9"
         run: |
-            python3.9 -m pip install -r requirements.txt
+            python -m pip install -r requirements.txt
       - name: Run tests
-        run: python3.9 -m pytest tests/Bio-KeyAPI-test.py
+        run: python -m pytest tests/Bio-KeyAPI-test.py
