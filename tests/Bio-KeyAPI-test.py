@@ -1,9 +1,3 @@
-# Bio-KeyAPI
-Bio-KeyAPI
-
-docker-compose -f docker-compose.yml up --build -d 
-docker-compose up
-
 This Flask API provides the following endpoints:
 
     POST /item: Create a new item.

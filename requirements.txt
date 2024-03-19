@@ -1,0 +1,4 @@
+flask>=2.2.2
+werkzeug>=2.3.7
+gunicorn>=20.0
+SQLAlchemy==1.4.32
