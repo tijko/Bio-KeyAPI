@@ -13,7 +13,8 @@ requests using libraries like requests in Python.
 
 import json
 import pytest
-from ../Bio-Key import app
+
+from BioKey import app
 
 @pytest.fixture
 def client():
