@@ -41,6 +41,8 @@ def client():
                                     data=serialized_entry, 
                                     headers={'Content-Type':'application/json'}
                                   )
+        item_two = json.dumps({'name':'ethan', 'description':'devops'})
+        client.put('/item/2', data=item_two, headers={'Content-Type':'application/json'})
         yield client
 
 def test_get_items(client):
