@@ -51,4 +51,6 @@ def test_put_data(client):
     assert 200 == response.status_code
 
 def test_get_id(client):
-    assert 1 == 1
+    response = client.get('/item/2')
+    entry = json.loads(response.data.decode('utf-8'))
+    assert entry['id'] == 2
