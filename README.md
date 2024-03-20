@@ -3,8 +3,6 @@ Bio-KeyAPI
 
 [![Bio-Key](https://github.com/tijko/Bio-KeyAPI/actions/workflows/main.yml/badge.svg)](https://github.com/tijko/Bio-KeyAPI/actions/workflows/main.yml)
 
-    docker-compose -f docker-compose.yml up --build -d 
-
 This Flask API provides the following endpoints:
 
     POST /item: Create a new item.
@@ -14,6 +12,10 @@ This Flask API provides the following endpoints:
     DELETE /item/<item_id>: Delete a specific item by its ID.
 
 You can test these endpoints using tools like Postman or by sending HTTP requests using libraries like requests in Python.
+
+Bring up the docker container locally:
+
+    docker-compose -f docker-compose.yml up --build -d 
 
 Run Tests Locally:
 
