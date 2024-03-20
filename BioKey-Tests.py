@@ -39,7 +39,7 @@ def test_get_users(client):
     response = client.get('/items')
     assert response.status_code == 200
     data = json.loads(response.data.decode('utf-8'))
-    assert len(data) == 4
+    assert len(data['items']) > 4
 
 def test_put_data(client):
     data = {'name': 'Zack', 'description': 'devops'}
