@@ -41,11 +41,11 @@ def client():
                                     data=serialized_entry, 
                                     headers={'Content-Type':'application/json'}
                                   )
-        item_two = json.dumps({'name':'ethan', 'description':'devops'})
-        client.put('/item/2', data=item_two, headers={'Content-Type':'application/json'})
         yield client
 
 def test_get_itemid(client):
+    item_two = json.dumps({'name':'ethan', 'description':'devops'})
+    client.put('/item/2', data=item_two, headers={'Content-Type':'application/json'})
     response = client.get('/item/2')
     entry = json.loads(response.data.decode('utf-8'))
     assert entry['id'] == 2
