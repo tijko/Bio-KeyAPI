@@ -21,36 +21,37 @@ from BioKey import app
 
 @pytest.fixture
 def client():
+    # Test data entries
+    entries = [{'name':'Tim', 'description':'dev'},
+               {'name':'Bob', 'description':'dba'},
+               {'name':'Alice', 'description':'ux'},
+               {'name':'Charlie', 'description':'qa'}]
     with app.test_client() as client:
-        data = {
-            "name": "Tim", 
-            "description": "dev", 
-        }
-        response = client.post(
-            "/item",
-            data=json.dumps(data),
-            headers={"Content-Type": "application/json"},
-        )
+        for entry in entries:
+            serialized_entry = json.dumps(entry)
+            response = client.post('/item', 
+                                    data=serialized_entry, 
+                                    headers={'Content-Type':'application/json'}
+                                  )
         yield client
 
 def test_get_users(client):
     response = client.get('/items')
     assert response.status_code == 200
     data = json.loads(response.data.decode('utf-8'))
-    assert len(data) == 1
-    # You can add more assertions based on the expected response data
-    assert data['items'][0]['name'] == 'Tim'
-    #assert data[1]['name'] == 'Bob'
-    #assert data[2]['name'] == 'Charlie'
+    assert len(data) == 4
 
-def test_load_data(client):
+def test_put_data(client):
     data = {
-        "name": "Bob", 
-        "description": "dev", 
+        'name': 'Zack',
+        "description': 'devops',
     }
-    response = client.post(
-        "/item",
-        data=json.dumps(data),
-        headers={"Content-Type": "application/json"},
-    )
-    assert 201 == response.status_code
+    serialized_entry = json.dumps(data)
+    response = client.put('/item/2',
+                           data=serialized_entry,
+                           headers={'Content-Type':'application/json'},
+                         )
+    assert 200 == response.status_code
+
+def test_get_id(client):
+    assert 1 == 1

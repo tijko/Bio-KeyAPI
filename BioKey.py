@@ -18,7 +18,6 @@ def create_table():
     conn.execute('CREATE TABLE IF NOT EXISTS items (id INTEGER PRIMARY KEY, name TEXT, description TEXT)')
     conn.commit()
     conn.close()
-create_table()
 
 # Create operation
 @app.route('/item', methods=['POST'])
@@ -76,4 +75,5 @@ def delete_item(item_id):
     return jsonify({'message': 'Item deleted successfully'}), 200
 
 if __name__ == '__main__':
+    create_table()
     app.run(debug=True)
