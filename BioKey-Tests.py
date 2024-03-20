@@ -54,3 +54,10 @@ def test_get_id(client):
     response = client.get('/item/2')
     entry = json.loads(response.data.decode('utf-8'))
     assert entry['id'] == 2
+
+def test_delete_id(client):
+    response = client.delete('/item/2')
+    assert 200 == response.status_code
+    response = client.get('/items')
+    entries = json.loads(response.data.decode('utf-8'))
+    assert all(item['id'] != 2 for item in entries['items'][0])
