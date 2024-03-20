@@ -48,7 +48,7 @@ def test_get_itemid(client):
     client.put('/item/2', data=item_two, headers={'Content-Type':'application/json'})
     response = client.get('/item/2')
     entry = json.loads(response.data.decode('utf-8'))
-    assert entry['items'][0]['id'] == 2
+    assert entry['id'] == 2
 
 def test_get_items(client):
     response = client.get('/items')
