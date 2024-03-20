@@ -12,6 +12,14 @@ This Flask API provides the following endpoints:
 
 You can test these endpoints using tools like Postman or by sending HTTP
 requests using libraries like requests in Python.
+
+There are 4 tests here:
+
+  POST
+  GET '/item/id'
+  GET '/items'
+  PUT '/item/id'
+  DELETE '/item/id'
 '''
 
 import json
@@ -35,13 +43,13 @@ def client():
                                   )
         yield client
 
-def test_get_users(client):
+def test_get_items(client):
     response = client.get('/items')
     assert response.status_code == 200
     data = json.loads(response.data.decode('utf-8'))
     assert len(data['items']) > 4
 
-def test_put_data(client):
+def test_put_item(client):
     data = {'name': 'Zack', 'description': 'devops'}
     serialized_entry = json.dumps(data)
     response = client.put('/item/2',
@@ -50,12 +58,12 @@ def test_put_data(client):
                          )
     assert 200 == response.status_code
 
-def test_get_id(client):
+def test_get_itemid(client):
     response = client.get('/item/2')
     entry = json.loads(response.data.decode('utf-8'))
     assert entry['id'] == 2
 
-def test_delete_id(client):
+def test_delete_itemid(client):
     response = client.delete('/item/2')
     assert 200 == response.status_code
     response = client.get('/items')
