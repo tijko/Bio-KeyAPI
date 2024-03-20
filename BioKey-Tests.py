@@ -42,10 +42,7 @@ def test_get_users(client):
     assert len(data) == 4
 
 def test_put_data(client):
-    data = {
-        'name': 'Zack',
-        "description': 'devops',
-    }
+    data = {'name': 'Zack', 'description': 'devops'}
     serialized_entry = json.dumps(data)
     response = client.put('/item/2',
                            data=serialized_entry,
