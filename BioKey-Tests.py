@@ -60,4 +60,4 @@ def test_delete_id(client):
     assert 200 == response.status_code
     response = client.get('/items')
     entries = json.loads(response.data.decode('utf-8'))
-    assert all(item['id'] != 2 for item in entries['items'][0])
+    assert all(item['id'] != 2 for item in entries['items'])
