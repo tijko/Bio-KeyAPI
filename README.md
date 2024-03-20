@@ -20,3 +20,11 @@ Bring up the docker container locally:
 Run Tests Locally:
 
     python -m pytest BioKey-Tests.py
+
+To run container and test endpoints:
+
+    $./run-container.sh
+
+This will run the `docker-compose` command as well as hit the endpoints to show
+they are available and server is up.  Next `jq` parses the return data and will
+do a small dump to `STDOUT`.
