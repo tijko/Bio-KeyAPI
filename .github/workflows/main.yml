@@ -24,6 +24,6 @@ jobs:
       - uses: hoverkraft-tech/compose-action@v1.5.1
         name: Docker Compose
         with:
-             compose-file: "./docker/docker-compose.yml"
+             compose-file: 'docker-compose.yml'
       - name: Run tests
         run: python -m pytest BioKey-Tests.py
