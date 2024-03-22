@@ -9,11 +9,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        name: CheckOut Repository
+        name: Checkout
       - name: Build Docker Container
         run: |
           docker-compose -f docker-compose.yml up --build -d &
       - uses: actions/setup-python@v5
+        name: Setup Python
         with:
             python-version: '3.9'
       - name: Install Requirements
