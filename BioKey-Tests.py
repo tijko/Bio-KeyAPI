@@ -43,17 +43,20 @@ def client():
                                   )
         yield client
 
+# Test read operation (retrieve a specific item)
 def test_get_itemid(client):
     response = client.get('/item/1')
     entry = json.loads(response.data.decode('utf-8'))
     assert entry['id'] == 1
 
+# Test read operation (retrieve all items)
 def test_get_items(client):
     response = client.get('/items')
     assert response.status_code == 200
     data = json.loads(response.data.decode('utf-8'))
     assert len(data['items']) > 4
 
+# Test update operation
 def test_put_item(client):
     data = {'name': 'Zack', 'description': 'devops'}
     serialized_entry = json.dumps(data)
@@ -63,6 +66,7 @@ def test_put_item(client):
                          )
     assert 200 == response.status_code
 
+# Test delete operation
 def test_delete_itemid(client):
     response = client.delete('/item/2')
     assert 200 == response.status_code
