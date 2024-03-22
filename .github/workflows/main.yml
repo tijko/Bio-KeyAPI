@@ -26,4 +26,4 @@ jobs:
         with:
              compose-file: 'docker-compose.yml'
       - name: Run tests
-        run: python -m pytest BioKey-Tests.py
+        run: pytest BioKey-Tests.py
